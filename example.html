@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tagcloud</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="build/build.css">
+    <script src="build/build.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  </head>
+  <body>
+    You will notice performance difference mostly in chrome since the way it implements prerendering is <a target="_blank" href="https://developers.google.com/chrome/whitepapers/prerender"> more efficient than firefox prefetching</a>,<br>
+    firefox seems to prefetch html and not sources like media files so this is not an ideal example...<br><br>
+
+    <a class='some-class' id='yes' href='http://z.about.com/d/cameras/1/0/u/1/bigcat.JPG'>hover to see the prefetched image</a> |
+    <a id='no' href='http://host.trivialbeing.org/up/WarCraftArtBig.jpg'>hover to see the non-prefetched the image</a>
+    <div style="width:1000px;" id="display"></div>
+    <script>
+      var prefetcher = require('prefetcher');
+      prefetcher("some-class");
+
+      $('#yes').hover(
+        function(){
+          $('#display').append($("<img id='temp1' width='1000' src='http://z.about.com/d/cameras/1/0/u/1/bigcat.JPG'>"))
+        },
+        function(){
+          $('#temp1').remove()
+        }
+      );
+
+      $('#no').hover(
+        function(){
+          $('#display').append($("<img id='temp2'width='1000' src='http://host.trivialbeing.org/up/WarCraftArtBig.jpg'>"))
+        },
+        function(){
+          $('#temp2').remove()
+        }
+      );
+    </script> 
+  </body>
+</html>
