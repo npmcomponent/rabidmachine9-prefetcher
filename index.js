@@ -9,7 +9,7 @@
 
 module.exports = prefetcher;
 
-/*
+/**
  *@desc gives back href links with specified class name
  *@param string className the name of our target html class
  *@return array - all href values of target class
@@ -23,7 +23,7 @@ function hrefLinks(className){
 	return unique(hrefs);
 }
 
-/*
+/**
  *@desc prefetches-prerenders target links by inserting them to <head>
  *@param string className the name of target html class
  *
@@ -40,7 +40,7 @@ function prefetcher(className){
 	});
 }
 
-/*
+/**
  *@desc remove duplicate values from an array
  *@param array someArray the array to be filtered
  *@return array the result array without duplicates
