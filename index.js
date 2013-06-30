@@ -30,14 +30,14 @@ function hrefLinks(className){
 **/
 
 function prefetcher(className){
-	var hrefs = hrefLinks(className);
-	Array.prototype.forEach.call(hrefs, function(el){
-		var prefetchLink = document.createElement('link');
-		var head = document.getElementsByTagName('head').item(0);
-		prefetchLink.setAttribute('rel', 'prerender prefetch');
-		prefetchLink.setAttribute('href', el);
-		head.appendChild(prefetchLink);   
-	});
+  var hrefs = hrefLinks(className);
+  Array.prototype.forEach.call(hrefs, function(el){
+  	var prefetchLink = document.createElement('link');
+  	var head = document.getElementsByTagName('head').item(0);
+  	prefetchLink.setAttribute('rel', 'prerender prefetch');
+  	prefetchLink.setAttribute('href', el);
+  	head.appendChild(prefetchLink);   
+  });
 }
 
 /**
