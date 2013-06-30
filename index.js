@@ -15,12 +15,12 @@ module.exports = prefetcher;
  *@return array - all href values of target class
 **/
 function hrefLinks(className){
-	elementsToPrefetch = document.getElementsByClassName(className);
-	var hrefs = [];
-	Array.prototype.forEach.call(elementsToPrefetch, function(el){
-		hrefs.push(el.getAttribute('href'));
-	});
-	return unique(hrefs);
+  elementsToPrefetch = document.getElementsByClassName(className);
+  var hrefs = [];
+  Array.prototype.forEach.call(elementsToPrefetch, function(el){
+    hrefs.push(el.getAttribute('href'));
+  });
+  return unique(hrefs);
 }
 
 /**
@@ -32,11 +32,11 @@ function hrefLinks(className){
 function prefetcher(className){
   var hrefs = hrefLinks(className);
   Array.prototype.forEach.call(hrefs, function(el){
-  	var prefetchLink = document.createElement('link');
-  	var head = document.getElementsByTagName('head').item(0);
-  	prefetchLink.setAttribute('rel', 'prerender prefetch');
-  	prefetchLink.setAttribute('href', el);
-  	head.appendChild(prefetchLink);   
+    var prefetchLink = document.createElement('link');
+    var head = document.getElementsByTagName('head').item(0);
+    prefetchLink.setAttribute('rel', 'prerender prefetch');
+    prefetchLink.setAttribute('href', el);
+    head.appendChild(prefetchLink);   
   });
 }
 
