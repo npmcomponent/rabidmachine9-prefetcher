@@ -1,0 +1,15 @@
+{
+  "name": "rabidmachine9-prefetcher",
+  "description": "prefetch all links specified by a target class",
+  "version": "0.0.1",
+  "keywords": [
+    "prefetcher",
+    "preloader"
+  ],
+  "main": "index.js",
+  "styles": [
+    "prefetcher.css"
+  ],
+  "dependencies": {},
+  "license": "MIT"
+}
